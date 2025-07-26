@@ -34,6 +34,10 @@ class LockState(SureEnum):
     CURFEW_UNLOCKED = -2
     CURFEW_UNKNOWN = -3
 
+class TagProfile(SureEnum):
+    INSIDE_ONLY = 3
+    INSIDE_AND_OUTSIDE = 2
+
 
 class Location(SureEnum):
     """Sure Locations."""

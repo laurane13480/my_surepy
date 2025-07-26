@@ -47,7 +47,7 @@ from .const import (
     SUREPY_USER_AGENT,
     USER_AGENT,
 )
-from .enums import Location, LockState
+from .enums import Location, LockState, TagProfile
 from .exceptions import SurePetcareAuthenticationError, SurePetcareConnectionError, SurePetcareError
 
 
@@ -380,20 +380,11 @@ class SureAPIClient:
         # return None
         raise SurePetcareError("ERROR (UN)LOCKING DEVICE - PLEASE CHECK IMMEDIATELY!")
 
-    async def _set_lock_state_for_tag(self, device_id : int, tag_id, mode: LockState) -> dict[str, Any] | None:
+    async def _set_profile_for_tag(self, device_id : int, tag_id, profile: TagProfile) -> dict[str, Any] | None:
         """Retrieve the tag data."""
         resource = DEVICE_TAG_RESOURCE.format(BASE_RESOURCE=BASE_RESOURCE, device_id=device_id, tag_id=tag_id)
-        profile_value : int = None
 
-        if mode == LockState.LOCKED_IN:
-            profile_value = 3
-        elif mode == LockState.UNLOCKED:
-            profile_value = 2
-
-        if profile_value is None:
-            raise ValueError(f"Unknown lock state for tag: {mode}")
-
-        data = {"profile": profile_value}
+        data = {"profile": profile.value}
 
         if (
                 response := await self.call(
