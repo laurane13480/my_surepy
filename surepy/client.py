@@ -380,6 +380,36 @@ class SureAPIClient:
         # return None
         raise SurePetcareError("ERROR (UN)LOCKING DEVICE - PLEASE CHECK IMMEDIATELY!")
 
+    async def _set_lock_state_for_tag(self, device_id : int, tag_id, mode: LockState) -> dict[str, Any] | None:
+        """Retrieve the tag data."""
+        resource = DEVICE_TAG_RESOURCE.format(BASE_RESOURCE=BASE_RESOURCE, device_id=device_id, tag_id=tag_id)
+        profile_value : int = None
+
+        if mode == LockState.LOCKED_IN:
+            profile_value = 3
+        elif mode == LockState.UNLOCKED:
+            profile_value = 2
+
+        if profile_value is None:
+            raise ValueError(f"Unknown lock state for tag: {mode}")
+
+        data = {"profile": profile_value}
+
+        if (
+                response := await self.call(
+                    method="PUT", resource=resource, data=data
+                )
+        ) and (response_data := response.get("data")):
+            desired_state = data.get("profile")
+            state = response_data.get("profile")
+
+            # check if the state is correctly updated
+            if state == desired_state:
+                return response
+
+        # return None
+        raise SurePetcareError("ERROR (UN)LOCKING TAG - PLEASE CHECK IMMEDIATELY!")
+
     async def set_curfew(
         self, device_id: int, lock_time: time, unlock_time: time
     ) -> dict[str, Any] | None:
