@@ -7,12 +7,12 @@ from pathlib import Path
 
 import pytest
 
-from surepy import Surepy
-from surepy.enums import LockState
+from surepylhn import Surepy
+from surepylhn.enums import LockState
 
-token_file = Path("~/.surepy.token").expanduser()
+token_file = Path("~/.surepylhn.token").expanduser()
 old_token_file = token_file.with_suffix(".old_token")
-auth_file = Path("~/.surepy.auth").expanduser()
+auth_file = Path("~/.surepylhn.auth").expanduser()
 config = configparser.ConfigParser()
 config.read(str(auth_file))
 

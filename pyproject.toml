@@ -1,5 +1,5 @@
 [tool.poetry]
-authors = ["Ben Lebherz <git@benleb.de>"]
+authors = ["Laurane Herbepin <git@lauraen13480.fr>"]
 classifiers = [
   "Topic :: Home Automation",
   "Topic :: Software Development",
@@ -19,7 +19,7 @@ documentation = "https://surepy.readthedocs.io"
 homepage = "https://github.com/benleb/surepy"
 keywords = ["cat", "surepetcare", "home-assistant"]
 license = "MIT"
-name = "surepy"
+name = "surepylhn"
 readme = "README.md"
 repository = "https://github.com/benleb/surepy"
 version = "0.9.1"
@@ -43,9 +43,6 @@ pylint = "^2.10.2"
 pytest = "^8.0.0"
 pytest-cov = "^2.12.1"
 pytest-asyncio = "^1.1.0"
-
-[tool.poetry.scripts]
-surepy = 'surepy.surecli:cli'
 
 [tool.pylint.MASTER]
 disable = ["missing-module-docstring", "missing-class-docstring", "missing-function-docstring"]
@@ -109,11 +106,11 @@ minversion = "6.0"
 testpaths = ["tests"]
 
 [tool.coverage.paths]
-source = ["surepy"]
+source = ["surepylhn"]
 
 [tool.coverage.run]
 branch = true
-source = ["surepy"]
+source = ["surepylhn"]
 
 [tool.coverage.report]
 show_missing = true

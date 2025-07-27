@@ -1,7 +1,7 @@
 """
-surepy
+surepylhn
 ====================================
-The core module of surepy
+The core module of surepylhn
 
 |license-info|
 """
@@ -52,7 +52,7 @@ from .exceptions import SurePetcareAuthenticationError, SurePetcareConnectionErr
 
 
 TOKEN_ENV = "SUREPY_TOKEN"  # nosec
-TOKEN_FILE = Path("~/.surepy.token").expanduser()
+TOKEN_FILE = Path("~/.surepylhn.token").expanduser()
 
 # get a logger
 logger: Logger = logging.getLogger(__name__)

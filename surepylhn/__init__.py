@@ -1,7 +1,7 @@
 """
-surepy
+surepylhn
 ====================================
-The core module of surepy
+The core module of surepylhn
 
 |license-info|
 """
@@ -21,8 +21,8 @@ import aiohttp
 
 from rich.console import Console
 
-from surepy.client import SureAPIClient, find_token, token_seems_valid
-from surepy.const import (
+from surepylhn.client import SureAPIClient, find_token, token_seems_valid
+from surepylhn.const import (
     API_TIMEOUT,
     ATTRIBUTES_RESOURCE as ATTR_RESOURCE,
     BASE_RESOURCE,
@@ -31,16 +31,16 @@ from surepy.const import (
     NOTIFICATION_RESOURCE,
     TIMELINE_RESOURCE,
 )
-from surepy.entities import SurepyEntity
-from surepy.entities.devices import Feeder, Felaqua, Flap, Hub, SurepyDevice
-from surepy.entities.pet import Pet
-from surepy.enums import EntityType
+from surepylhn.entities import SurepyEntity
+from surepylhn.entities.devices import Feeder, Felaqua, Flap, Hub, SurepyDevice
+from surepylhn.entities.pet import Pet
+from surepylhn.enums import EntityType
 
 
 __version__ = version(__name__)
 
 # TOKEN_ENV = "SUREPY_TOKEN"  # nosec
-# TOKEN_FILE = Path("~/.surepy.token").expanduser()
+# TOKEN_FILE = Path("~/.surepylhn.token").expanduser()
 
 # get a logger
 logger: Logger = logging.getLogger(__name__)

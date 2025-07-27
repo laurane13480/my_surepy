@@ -1,5 +1,5 @@
 """
-surepy.devices
+surepylhn.devices
 ====================================
 ABC representing a Sure Petcare Device.
 
@@ -14,9 +14,9 @@ from abc import ABC
 from typing import Any
 from urllib.parse import urlparse
 
-from surepy.const import SURE_BATT_VOLTAGE_FULL, SURE_BATT_VOLTAGE_LOW
-from surepy.entities import SurepyEntity
-from surepy.enums import BowlPosition, FoodType, LockState
+from surepylhn.const import SURE_BATT_VOLTAGE_FULL, SURE_BATT_VOLTAGE_LOW
+from surepylhn.entities import SurepyEntity
+from surepylhn.enums import BowlPosition, FoodType, LockState
 
 
 # get a logger

@@ -1,5 +1,5 @@
 """
-surepy.entities.states
+surepylhn.entities.states
 ====================================
 Classes representing pet states.
 
@@ -12,11 +12,11 @@ from abc import ABC
 from datetime import datetime
 from typing import Any
 
-from surepy.enums import Location
+from surepylhn.enums import Location
 
 
 class PetState(ABC):
-    """abstract surepy state."""
+    """abstract surepylhn state."""
 
     def __init__(self, state: dict[str, dict[str, Any]]):
         self.activity: ActivityState | None = (
@@ -31,7 +31,7 @@ class PetState(ABC):
 
 
 class ActivityState:
-    """surepy activity state."""
+    """surepylhn activity state."""
 
     def __init__(self, state: dict[str, Any]):
         self.device_id = state.get("device_id")
@@ -43,7 +43,7 @@ class ActivityState:
 
 
 class DrinkingState:
-    """surepy drinking state."""
+    """surepylhn drinking state."""
 
     def __init__(self, state: dict[str, Any]):
         self.device_id = state.get("device_id")
@@ -53,7 +53,7 @@ class DrinkingState:
 
 
 class FeedingState:
-    """surepy feeding state."""
+    """surepylhn feeding state."""
 
     def __init__(self, state: dict[str, Any]):
         self.device_id = state.get("device_id")

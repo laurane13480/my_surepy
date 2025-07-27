@@ -20,23 +20,23 @@ Library & CLI to interact with the Sure Petcare API. [**surepy**](https://github
 [**surepy**](https://github.com/benleb/surepy) is available via [pypi.org](https://pypi.org)
 
 ```bash
-python3 -m pip install --upgrade surepy
+python3 -m pip install --upgrade surepylhn
 # or
-pip install --upgrade surepy
+pip install --upgrade surepylhn
 ```
 
 there is also a small cli available
 
 ```bash
-$ surepy --help
-Usage: surepy [OPTIONS] COMMAND [ARGS]...
+$ surepylhn --help
+Usage: surepylhn [OPTIONS] COMMAND [ARGS]...
 
-  surepy cli 🐾
+  surepylhn cli 🐾
 
   https://github.com/benleb/surepy
 
 Options:
-  --version         show surepy version
+  --version         show surepylhn version
   -j, --json        enable json api response output
   -t, --token TEXT  api token
   --help            Show this message and exit.
@@ -62,16 +62,15 @@ from os import environ
 from pprint import pprint
 from typing import Dict, List
 
-from surepy import Surepy
-from surepy.entities import SurepyEntity
-from surepy.entities.devices import SurepyDevice
-from surepy.entities.pet import Pet
+from surepylhn import Surepy
+from surepylhn.entities import SurepyEntity
+from surepylhn.entities.devices import SurepyDevice
+from surepylhn.entities.pet import Pet
 
 
 async def main():
-
     # # user/password authentication (gets a token in background)
-    # surepy = Surepy(email=user, password=password)
+    # surepylhn = Surepy(email=user, password=password)
 
     # token authentication (token supplied via SUREPY_TOKEN env var)
     token = environ.get("SUREPY_TOKEN")

@@ -1,7 +1,7 @@
 """
-surepy.pet
+surepylhn.pet
 ====================================
-The `Pet` class of surepy
+The `Pet` class of surepylhn
 
 |license-info|
 """
@@ -12,9 +12,9 @@ from datetime import datetime
 from typing import Any
 from urllib.parse import urlparse
 
-from surepy.entities import PetActivity, PetLocation, StateDrinking, StateFeeding, SurepyEntity
-from surepy.entities.states import PetState
-from surepy.enums import EntityType, FoodType, Location
+from surepylhn.entities import PetActivity, PetLocation, StateDrinking, StateFeeding, SurepyEntity
+from surepylhn.entities.states import PetState
+from surepylhn.enums import EntityType, FoodType, Location
 
 
 class Pet(SurepyEntity):
