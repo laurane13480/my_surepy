@@ -380,8 +380,10 @@ class SureAPIClient:
         # return None
         raise SurePetcareError("ERROR (UN)LOCKING DEVICE - PLEASE CHECK IMMEDIATELY!")
 
-    async def _set_profile_for_tag(self, device_id : int, tag_id, profile: TagProfile) -> dict[str, Any] | None:
+    async def set_profile_for_tag(self, device_id : int, tag_id, profile: TagProfile) -> dict[str, Any] | None:
         """Retrieve the tag data."""
+        logger.info("Entering set_profile_for_tag : device_id=%s, tag_id=%s, profile=%s", device_id, tag_id, profile)
+
         resource = DEVICE_TAG_RESOURCE.format(BASE_RESOURCE=BASE_RESOURCE, device_id=device_id, tag_id=tag_id)
 
         data = {"profile": profile.value}

@@ -39,10 +39,10 @@ async def test_get_entities() -> None:
     assert len(response) > 0
 
 @pytest.mark.asyncio
-async def test_set_lock_state_tag() -> None:
+async def test_set_profile_for_tag() -> None:
     spy = await get_surepy()
 
-    response = await spy.sac._set_lock_state_for_tag(device_id=1103637, tag_id=1932540, mode=LockState.UNLOCKED)
+    response = await spy.sac.set_profile_for_tag(device_id=1103637, tag_id=1932540, mode=LockState.UNLOCKED)
 
     with open("response.txt", "w") as file:
         file.write(pprint.pformat(response))
